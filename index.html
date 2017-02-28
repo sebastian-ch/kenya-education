@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+    <title>Kenyan Primary School Enrollment</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+    <link href='https://api.mapbox.com/mapbox-assembly/v0.8.0/assembly.min.css' rel='stylesheet'>
+    <link href='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css' rel='stylesheet' />
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
+
+    <link href='css/styles.css' rel='stylesheet' />
+</head>
+
+<body>
+
+    <div class='grid'>
+        <div class='col col--12 col--3-ml p12 pb6 viewport-third viewport-full-ml'>
+            <div class='h-full scroll-auto'>
+                <h1 class='txt-subhead mb6'>Kenyan Primary School Enrollment in 2014</h1>
+                <p>This map shows the enrollment numbers for Kenyan boys and girls in grades 1 through 8.</p>
+                <h2 class='txt-l mt18 mb12'>Education in Kenya</h2>
+                <div class='txt-ul'>
+                    <div class='txt-li'>Primary education begins at the age of 5 to 7 after completing a year of kindergarden</div>
+                    <div class='txt-li'>Free primary education was reintroduced in 2003, however, literacy rates are still low.</div>
+                    <div class='txt-li'>These levels decrease dramatically in more rural areas (see the Northeast on the map).</div>
+                </div>
+                <footer class='mt12 bg-gray-faint txt-s'>
+                    <ul>
+                        <li>Explore the raw <a class='link' href='http://icta-kenyaopendata.opendata.arcgis.com/datasets/national-boys-and-girls-enrollments-per-class-for-primary-school-education' target="_blank">data</a></li>
+                        <li>Map authored by Sebastian Hancock</li>
+                    </ul>
+                </footer>
+            </div>
+        </div>
+        <div class='col col--12 col--9-ml h180 h-full-ml'>
+            <div id="map" class='viewport-twothirds viewport-full-ml'></div>
+
+            <!-- slider Title -->
+            <div id='sliderTitle' class='py6 px6 txt-bold bg-white p16'>Grade 1</div>
+
+            <!-- ui slider -->
+            <div id='slider' class='range w240 bg-white round-ml p12'>
+                <input type='range' min='1' , max='8' , value='1' , step='1' , class="slider">
+            </div>
+
+            <!-- legend -->
+            <div id='legend' class='bg-white round-ml p18'>
+                <h3 class='txt-bold mb12 w-full mx-auto'>Enrolled Students</h3>
+                <div class='legend-circles relative w180 wmax180'>
+                    <div class="legend-large border border--gray-light absolute"></div>
+                    <div class="legend-small border border--gray-light absolute"></div>
+                    <div class="legend-large-label txt-m absolute"></div>
+                    <div class="legend-small-label txt-m absolute"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id='info' class='py6 px12 bg-white border border--gray-light round absolute wmax200 none'>
+        <p>County: <span></span></p>
+        <p class='girls'>girls <span></span>: <span class='txt-l txt-bold'></span></p>
+        <p class='boys'>boys <span></span>: <span class='txt-l txt-bold'></span></p>
+        <hr class='txt-hr'>
+        <p class='my6'>trend: grades 1 &ndash; 8</p>
+        <p class='mb6'><span class='girlspark'></span></p>
+        <p><span class='boyspark'></span></p>
+    </div>
+
+    <script async defer src="https://api.mapbox.com/mapbox-assembly/v0.8.0/assembly.js"></script>
+    <script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
+    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sparklines/2.1.2/jquery.sparkline.min.js"></script>
+    <script src='js/app.js'></script>
+
+</body>
+
+</html>
