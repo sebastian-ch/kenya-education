@@ -38,7 +38,9 @@
             color: '#6E77B0'
         }).addTo(map);
 
-        map.fitBounds(girlsLayer.getBounds());
+        map.fitBounds(girlsLayer.getBounds(), {
+            padding: [35,35]
+        });
 
         //call functions right when map is drawn
         resizeCircles(girlsLayer, boysLayer, 1);
@@ -67,7 +69,6 @@
 
                 // add legend to the control
                 return div;
-
             }
             // add the control to the map
         legend.addTo(map);
@@ -91,7 +92,6 @@
         });
 
         var maxValue = Math.round(sortedValues[0] / 1000) * 1000;
-        console.log(maxValue);
 
         var largeDiameter = calcRadius(maxValue) * 2,
             smallDiameter = largeDiameter / 2;
@@ -131,13 +131,11 @@
         $("<hr class='large'>").insertBefore(".legend-large-label")
         $("<hr class='small'>").insertBefore(".legend-small-label").css('top', largeDiameter - smallDiameter - 8);
     }
-
     //calculates radius for resizeCircles
     function calcRadius(val) {
         var radius = Math.sqrt(val / Math.PI);
         return radius * .5;
     }
-
     //resizes circles based on current grade
     function resizeCircles(girlsLayer, boysLayer, currentGrade) {
 
@@ -152,7 +150,6 @@
         });
 
         retrieveInfo(boysLayer, currentGrade);
-
     }
 
     function sequenceUI(girlsLayer, boysLayer) {
@@ -282,5 +279,4 @@
             }
         });
     }
-
 })();
